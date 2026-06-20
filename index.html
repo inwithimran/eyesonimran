@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Tabib Imran | In the Lens with Imran</title>
+    <meta name="google-site-verification" content="b34Rtc8hZjdlo6KmjQ5rPpJoG_sCVGAorK7K0O33Gb8" />
+    <meta name="description" content="Welcome to my visual journal. In Focus with Imran is a curated collection of moments, stories, and perspectives captured through my lens. Step inside to explore the world as I see it—one frame at a time." />
+    
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        app: {
+                            bgLight: '#F8FAFC',
+                            cardLight: '#FFFFFF',
+                            bgDark: '#09090B',
+                            cardDark: '#18181B',
+                            primary: '#6366F1',
+                            primaryLight: '#EEF2FF',   
+                            primaryDark: '#818CF8',    
+                            accent: '#EC4899'
+                        }
+                    },
+                    borderRadius: {
+                        'app-xl': '28px',
+                        'app-lg': '20px'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            overflow-x: hidden;
+        }
+
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 16px;
+        }
+        @media (min-width: 480px) { .masonry-grid { column-count: 2; column-gap: 16px; } }
+        @media (min-width: 768px) { .masonry-grid { column-count: 3; column-gap: 20px; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 4; column-gap: 24px; } }
+        .masonry-item {
+            break-inside: avoid;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .page-transition {
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .active-scale:active {
+            transform: scale(0.97);
+            transition: transform 0.1s ease-out;
+        }
+
+        @keyframes heartPop {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.3); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .heart-popup {
+            animation: heartPop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+</head>
+<body class="bg-app-bgLight text-slate-800 dark:bg-app-bgDark dark:text-zinc-100 min-h-screen flex flex-col pb-24 transition-colors duration-300">
+
+    <!-- Top Bar -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-app-cardDark/90 backdrop-blur-md border-b border-slate-100 dark:border-zinc-900 px-4 py-4 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-app-primary to-indigo-600 p-[2px] shadow-sm">
+                    <div class="w-full h-full rounded-full bg-white dark:bg-app-cardDark flex items-center justify-center text-app-primary dark:text-app-primaryDark font-bold text-base">
+                        TI
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-sm font-extrabold tracking-tight text-slate-950 dark:text-white leading-tight">Imran's Log</h1>
+                    <span class="text-[10px] text-slate-400 dark:text-zinc-500 font-bold tracking-wider uppercase flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Private Vault
+                    </span>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="w-10 h-10 rounded-full hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-300 transition-all flex items-center justify-center active-scale" title="Toggle Theme">
+                <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-6xl mx-auto px-4 py-4">
+
+        <!-- Home Screen -->
+        <div id="screen-home" class="page-transition space-y-6">
+            <div class="relative w-full">
+                <span class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400 dark:text-zinc-500">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </span>
+                <input type="text" id="search-input" placeholder="Search memories, locations, or dates..." 
+                    class="w-full pl-11 pr-10 py-3.5 bg-white dark:bg-app-cardDark border border-slate-100 dark:border-zinc-900 rounded-app-lg focus:outline-none focus:border-app-primary dark:focus:border-app-primaryDark focus:ring-4 focus:ring-app-primary/10 dark:focus:ring-app-primaryDark/10 transition-all text-sm dark:text-white shadow-sm placeholder:text-slate-400 dark:placeholder:text-zinc-500">
+                <button id="clear-search" class="absolute inset-y-0 right-3.5 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white hidden">
+                    <i class="fa-solid fa-circle-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <div class="flex gap-2.5 overflow-x-auto py-1 no-scrollbar" id="category-tabs">
+                <button class="category-btn active px-5 py-3 rounded-app-lg text-xs font-bold tracking-wide transition-all duration-200 whitespace-nowrap bg-app-primary text-white shadow-md shadow-app-primary/20 active-scale" data-category="all">
+                    <i class="fa-solid fa-layer-group mr-1.5"></i> All Feeds
+                </button>
+                <button class="category-btn px-5 py-3 rounded-app-lg text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap bg-white dark:bg-app-cardDark text-slate-600 dark:text-zinc-300 border border-slate-100 dark:border-zinc-900 hover:bg-slate-50 dark:hover:bg-zinc-800 active-scale" data-category="dhaka">
+                    🌇 Dhaka
+                </button>
+             <button class="category-btn px-5 py-3 rounded-app-lg text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap bg-white dark:bg-app-cardDark text-slate-600 dark:text-zinc-300 border border-slate-100 dark:border-zinc-900 hover:bg-slate-50 dark:hover:bg-zinc-800 active-scale" data-category="jashore">
+                    🏙️ Jashore
+                </button>
+                <button class="category-btn px-5 py-3 rounded-app-lg text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap bg-white dark:bg-app-cardDark text-slate-600 dark:text-zinc-300 border border-slate-100 dark:border-zinc-900 hover:bg-slate-50 dark:hover:bg-zinc-800 active-scale" data-category="eid-special">
+               🕌 Eid Special
+             </button>
+                <button class="category-btn px-5 py-3 rounded-app-lg text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap bg-white dark:bg-app-cardDark text-slate-600 dark:text-zinc-300 border border-slate-100 dark:border-zinc-900 hover:bg-slate-50 dark:hover:bg-zinc-800 active-scale" data-category="moments">
+                    ⭐ Special Moments
+                </button>
+            </div>
+
+            <div class="masonry-grid" id="gallery-grid"></div>
+
+            <div id="no-results" class="hidden text-center py-20">
+                <div class="w-16 h-16 bg-slate-100 dark:bg-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-folder-open text-xl text-slate-400 dark:text-zinc-600"></i>
+                </div>
+                <h3 class="text-sm font-bold text-slate-800 dark:text-zinc-200">No matching assets</h3>
+                <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Try querying using a different filter or word.</p>
+            </div>
+        </div>
+
+        <!-- Favorites Screen -->
+        <div id="screen-favorites" class="page-transition space-y-5 hidden">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-zinc-900 pb-3.5">
+                <h2 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-app-accent"></i> Favorite Moments
+                </h2>
+                <span class="text-xs bg-slate-100 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 px-3 py-1 rounded-full font-bold" id="fav-count">0 total</span>
+            </div>
+            
+            <div class="masonry-grid" id="fav-grid"></div>
+
+            <div id="fav-empty-state" class="text-center py-24 hidden">
+                <div class="w-16 h-16 bg-slate-100 dark:bg-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                    <i class="fa-regular fa-heart text-xl text-slate-400 dark:text-zinc-600"></i>
+                </div>
+                <h3 class="text-sm font-bold text-slate-500 dark:text-zinc-400">Your favorites tab is empty</h3>
+                <p class="text-xs text-slate-400 dark:text-zinc-500 mt-1">Double-tap any picture in your home feed to add it here.</p>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div id="screen-profile" class="page-transition max-w-md mx-auto space-y-6 hidden">
+            <div class="bg-white dark:bg-app-cardDark rounded-app-xl p-6 text-center border border-slate-100 dark:border-zinc-900 shadow-sm space-y-4">
+                <div class="w-20 h-20 bg-gradient-to-tr from-app-primary to-indigo-600 rounded-full mx-auto flex items-center justify-center text-white text-3xl font-extrabold shadow-md shadow-app-primary/20">
+                    TI
+                </div>
+                <div>
+                    <h3 class="text-lg font-extrabold text-slate-950 dark:text-white">Tabib Imran</h3>
+                    <p class="text-xs text-slate-400 dark:text-zinc-500 mt-0.5">Xiaomi Redmi Note 13 4G Edition</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 pt-2 text-xs font-bold">
+                    <div class="bg-slate-50 dark:bg-zinc-900/50 p-3.5 rounded-app-lg border border-slate-100/50 dark:border-zinc-900">
+                        <span class="block text-slate-400 dark:text-zinc-500 mb-0.5">Captured</span>
+                        <span class="text-lg font-black text-app-primary dark:text-app-primaryDark" id="stat-total">0</span>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-zinc-900/50 p-3.5 rounded-app-lg border border-slate-100/50 dark:border-zinc-900">
+                        <span class="block text-slate-400 dark:text-zinc-500 mb-0.5">Favorited</span>
+                        <span class="text-lg font-black text-app-accent" id="stat-liked">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-app-cardDark rounded-app-xl p-5 border border-slate-100 dark:border-zinc-900 shadow-sm space-y-4">
+                <h4 class="text-[10px] font-black text-slate-400 dark:text-zinc-500 uppercase tracking-widest pl-1">Configuration Panel</h4>
+                <div class="flex items-center justify-between p-3.5 bg-slate-50 dark:bg-zinc-900/30 rounded-app-lg border border-slate-100/50 dark:border-zinc-900">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-moon text-slate-500"></i>
+                        <span class="text-sm font-semibold">Force System Dark Mode</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="auto-dark-toggle" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-zinc-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-zinc-700 peer-checked:bg-app-primary"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-app-cardDark/95 backdrop-blur-lg border-t border-slate-100 dark:border-zinc-900 px-6 py-3 flex justify-around items-center transition-colors duration-300 shadow-lg">
+        <button class="nav-item flex flex-col items-center gap-1 text-app-primary dark:text-app-primaryDark active-scale" data-screen="home">
+            <div class="w-12 h-8 rounded-full bg-app-primary/15 dark:bg-app-primaryDark/15 flex items-center justify-center transition-all duration-300" id="nav-pill-home">
+                <i class="fa-solid fa-house-chimney text-base"></i>
+            </div>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 dark:text-zinc-500 active-scale" data-screen="favorites">
+            <div class="w-12 h-8 rounded-full bg-transparent flex items-center justify-center transition-all duration-300" id="nav-pill-favorites">
+                <i class="fa-solid fa-heart text-base"></i>
+            </div>
+            <span class="text-[10px] font-semibold">Favorites</span>
+        </button>
+
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 dark:text-zinc-500 active-scale" data-screen="profile">
+            <div class="w-12 h-8 rounded-full bg-transparent flex items-center justify-center transition-all duration-300" id="nav-pill-profile">
+                <i class="fa-solid fa-sliders text-base"></i>
+            </div>
+            <span class="text-[10px] font-semibold">Settings</span>
+        </button>
+    </nav>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 text-white dark:bg-white dark:text-zinc-950 px-5 py-3 rounded-full shadow-lg flex items-center gap-2.5 text-xs font-semibold opacity-0 scale-90 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+        <span id="toast-message">Database synchronized</span>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 dark:bg-black/98 hidden flex flex-col items-center justify-between p-4 transition-all duration-300">
+        <div class="w-full max-w-4xl flex items-center justify-between text-white/90 py-4 px-2">
+            <span id="lightbox-counter" class="text-[11px] bg-zinc-800 px-3.5 py-2 rounded-full font-bold tracking-wider">1 / 8</span>
+            <div class="flex items-center gap-2">
+                <button id="lightbox-fav-btn" class="w-10 h-10 rounded-full bg-zinc-800/80 hover:bg-zinc-700 flex items-center justify-center transition-all">
+                    <i class="fa-regular fa-heart text-base text-white"></i>
+                </button>
+                <button id="lightbox-copy-btn" class="w-10 h-10 rounded-full bg-zinc-800/80 hover:bg-zinc-700 flex items-center justify-center transition-all" title="Copy link">
+                    <i class="fa-regular fa-clone text-base text-white"></i>
+                </button>
+                <button id="lightbox-close-btn" class="w-10 h-10 rounded-full bg-app-primary flex items-center justify-center transition-all active-scale">
+                    <i class="fa-solid fa-xmark text-lg text-white"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="relative w-full max-w-4xl flex-grow flex items-center justify-center">
+            <button id="lightbox-prev" class="absolute left-4 text-white/50 hover:text-white text-3xl z-10 p-3 hidden md:block">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+
+            <div class="relative max-w-full max-h-[60vh] flex flex-col items-center justify-center">
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[55vh] rounded-app-lg shadow-2xl object-contain border border-zinc-800/40 transition-transform duration-300 scale-95">
+                <i id="overlay-heart" class="fa-solid fa-heart text-app-accent text-6xl absolute opacity-0 hidden"></i>
+            </div>
+
+            <button id="lightbox-next" class="absolute right-4 text-white/50 hover:text-white text-3xl z-10 p-3 hidden md:block">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+        </div>
+
+        <div class="w-full max-w-md bg-zinc-900/90 dark:bg-zinc-900/95 border border-zinc-800/80 rounded-app-xl p-5 text-center text-white space-y-2 mb-4 shadow-xl">
+            <div class="flex items-center justify-center">
+                <span id="lightbox-badge" class="px-3 py-1 rounded-full text-[10px] font-black tracking-wider uppercase bg-app-primary/20 text-app-primaryDark border border-app-primary/30">TRAVELS</span>
+            </div>
+            <p id="lightbox-desc" class="text-sm font-semibold leading-relaxed text-zinc-100 px-1"></p>
+            <p class="text-[10px] text-zinc-500 font-medium">Swipe sideways, or double-tap to save as favorite</p>
+        </div>
+    </div>
+
+    <!-- Memories Data -->
+    <script src="memories.js"></script>
+    
+    <!-- Main Application Logic -->
+    <script src="app.js"></script>
+
+</body>
+</html>
