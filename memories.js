@@ -96,7 +96,25 @@ const privateMemories = [
     url: "pictures/16.jpg", 
     caption: "শান্ত বিকেলে নিজের সাথে কিছু মুহূর্ত।", 
     categories: ["pleasure-time"] 
-  }
+  },
+   {
+    id: 16, 
+    url: "pictures/17.jpg", 
+    caption: "", 
+    categories: ["dhaka"] 
+      },
+      {
+    id: 16, 
+    url: "pictures/18.jpg", 
+    caption: "", 
+    categories: ["dhaka"] 
+      },
+      {
+    id: 16, 
+    url: "pictures/19.jpg", 
+    caption: "", 
+    categories: ["jashore"] 
+}
 ];
 
 // Global exposure for index.html
