@@ -98,19 +98,19 @@ const privateMemories = [
     categories: ["pleasure-time"] 
   },
    {
-    id: 16, 
+    id: 17, 
     url: "pictures/17.jpg", 
     caption: "", 
     categories: ["dhaka"] 
       },
       {
-    id: 16, 
+    id: 18, 
     url: "pictures/18.jpg", 
     caption: "", 
     categories: ["dhaka"] 
       },
       {
-    id: 16, 
+    id: 19, 
     url: "pictures/19.jpg", 
     caption: "", 
     categories: ["jashore"] 
