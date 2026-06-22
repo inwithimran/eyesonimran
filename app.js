@@ -25,7 +25,7 @@ const lightboxDesc = document.getElementById('lightbox-desc');
 const lightboxBadge = document.getElementById('lightbox-badge');
 const lightboxCounter = document.getElementById('lightbox-counter');
 const lightboxFavBtn = document.getElementById('lightbox-fav-btn');
-const lightboxCopyBtn = document.getElementById('lightbox-copy-btn');
+const lightboxDownloadBtn = document.getElementById('lightbox-download-btn');
 const overlayHeart = document.getElementById('overlay-heart');
 
 const screens = {
@@ -253,7 +253,7 @@ function translateCategory(categories) {
         'dhaka-zia-park': 'Zia Park',
         'jashore': 'Jashore',
         'khulna': 'Khulna',
-        'rajshahi': 'Rajshahi',
+        'ru': 'Rajshahi University',
         'eid-special': 'Eid Special',
         'my-college': 'My College',
         'pleasure-time': 'Pleasure Time',
@@ -361,15 +361,23 @@ lightboxFavBtn.addEventListener('click', () => {
     updateLightboxContent();
 });
 
-lightboxCopyBtn.addEventListener('click', () => {
+// Download Action Listener
+lightboxDownloadBtn.addEventListener('click', () => {
     const currentImg = activeDataset[activeLightboxIndex];
-    const tempInput = document.createElement('input');
-    tempInput.value = currentImg.url;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-    showToast("Direct URL copied to clipboard 🔗");
+    
+    // Creating standard anchor download mechanism
+    const downloadLink = document.createElement('a');
+    downloadLink.href = currentImg.url;
+    
+    // Naming the file logically based on caption or ID
+    const sanitizedCaption = currentImg.caption ? currentImg.caption.substring(0, 20).replace(/[^\w\s\u0980-\u09FF]/gi, '') : '';
+    downloadLink.download = sanitizedCaption ? `imran_${sanitizedCaption}.jpg` : `imran_memory_${currentImg.id}.jpg`;
+    
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    
+    showToast("Downloading image... 📥");
 });
 
 // Double Tap Lightbox
