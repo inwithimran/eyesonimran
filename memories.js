@@ -124,13 +124,13 @@ const privateMemories = [
   {
     id: 21, 
     url: "pictures/21.jpg", 
-    caption: "The picture of coolness and confidence.", 
+    caption: "কথা নয়, চোখের ভাষাই যথেষ্ট।", 
     categories: ["jashore"] 
   },
   {
     id: 22, 
     url: "pictures/22.jpg", 
-    caption: "The picture of coolness and confidence.", 
+    caption: "নিস্তব্ধ রাত, আর একরাশ শান্ত ভাবনা।", 
     categories: ["jashore"] 
         }
 ];
