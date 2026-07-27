@@ -120,7 +120,19 @@ const privateMemories = [
     url: "pictures/20.jpg", 
     caption: "The picture of coolness and confidence.", 
     categories: ["jashore"] 
-  }
+  },
+  {
+    id: 21, 
+    url: "pictures/21.jpg", 
+    caption: "The picture of coolness and confidence.", 
+    categories: ["jashore"] 
+  },
+  {
+    id: 22, 
+    url: "pictures/22.jpg", 
+    caption: "The picture of coolness and confidence.", 
+    categories: ["jashore"] 
+        }
 ];
 
 // Global exposure for index.html
