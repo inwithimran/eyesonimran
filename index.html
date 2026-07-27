@@ -64,6 +64,17 @@
             display: inline-block;
             width: 100%;
             margin-bottom: 16px;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .masonry-item img {
+           transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+           will-change: transform;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.06);
         }
 
         .page-transition {
