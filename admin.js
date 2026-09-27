@@ -249,6 +249,8 @@ function watchCloudPhotos() {
     });
 }
 
+let editModalPushed = false;
+
 function openEditModal(docId, data) {
     editingDocId = docId;
     editPreview.src = data.url;
@@ -256,13 +258,28 @@ function openEditModal(docId, data) {
     editCategories.value = (data.categories || []).join(', ');
     editModal.classList.remove('hidden');
     editModal.classList.add('flex');
+    history.pushState({ modal: 'edit' }, '');
+    editModalPushed = true;
 }
 
-function closeEditModal() {
+function closeEditModalUI() {
     editingDocId = null;
     editModal.classList.add('hidden');
     editModal.classList.remove('flex');
+    editModalPushed = false;
 }
+
+function closeEditModal() {
+    if (editModalPushed) {
+        history.back();
+    } else {
+        closeEditModalUI();
+    }
+}
+
+window.addEventListener('popstate', () => {
+    if (editModalPushed) closeEditModalUI();
+});
 
 editCancelBtn.addEventListener('click', closeEditModal);
 
