@@ -93,42 +93,36 @@ const privateMemories = [
   },
    {
     id: 16, 
-    url: "pictures/16.jpg", 
-    caption: "শান্ত বিকেলে নিজের সাথে কিছু মুহূর্ত।", 
-    categories: ["pleasure-time"] 
-  },
-   {
-    id: 17, 
     url: "pictures/17.jpg", 
     caption: "", 
     categories: ["dhaka"] 
       },
       {
-    id: 18, 
+    id: 17, 
     url: "pictures/18.jpg", 
     caption: "", 
     categories: ["dhaka"] 
       },
       {
-    id: 19, 
+    id: 18, 
     url: "pictures/19.jpg", 
     caption: "", 
     categories: ["jashore"] 
 },
   {
-    id: 20, 
+    id: 19, 
     url: "pictures/20.jpg", 
     caption: "The picture of coolness and confidence.", 
     categories: ["jashore"] 
   },
   {
-    id: 21, 
+    id: 20, 
     url: "pictures/21.jpg", 
     caption: "কথা নয়, চোখের ভাষাই যথেষ্ট।", 
     categories: ["jashore"] 
   },
   {
-    id: 22, 
+    id: 21, 
     url: "pictures/22.jpg", 
     caption: "নিস্তব্ধ রাত, আর একরাশ শান্ত ভাবনা।", 
     categories: ["jashore"] 
