@@ -1,10 +1,11 @@
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCiILsuIIvCokCEdMcx_sNJx5WncBLUlAk",
+  authDomain: "eyesonimran.firebaseapp.com",
+  projectId: "eyesonimran",
+  storageBucket: "eyesonimran.firebasestorage.app",
+  messagingSenderId: "501577569267",
+  appId: "1:501577569267:web:345dbc603cb5c95841b886",
+  measurementId: "G-K7JREBRYJP"
 };
 
 let firebaseReady = false;
