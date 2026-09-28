@@ -1,6 +1,6 @@
 const cloudinaryConfig = {
-    cloudName: "YOUR_CLOUD_NAME",
-    uploadPreset: "YOUR_UPLOAD_PRESET"
+    cloudName: "s9htrtz2",
+    uploadPreset: "EyesOnImran"
 };
 
 const cloudinaryReady = cloudinaryConfig.cloudName !== "YOUR_CLOUD_NAME" && cloudinaryConfig.uploadPreset !== "YOUR_UPLOAD_PRESET";
