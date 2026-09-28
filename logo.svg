@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B38A8"/>
+      <stop offset="1" stop-color="#17154A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="150" cy="130" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#818CF8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1E1B4B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C7D2FE"/>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+    <radialGradient id="glass" cx="256" cy="256" r="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#0F0D2E"/>
+    </radialGradient>
+    <radialGradient id="iris" cx="256" cy="256" r="59" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A5B4FC"/>
+      <stop offset="0.55" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#3830A8"/>
+    </radialGradient>
+    <radialGradient id="pupil" cx="256" cy="256" r="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E1B4B"/>
+      <stop offset="1" stop-color="#050416"/>
+    </radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+    <clipPath id="clip"><rect width="512" height="512" rx="116"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <rect width="512" height="512" fill="url(#glow)"/>
+    <g fill="none" stroke="url(#brk)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+      <path d="M116 188V116H188"/>
+      <path d="M324 116H396V188"/>
+      <path d="M396 324V396H324"/>
+      <path d="M188 396H116V324"/>
+    </g>
+    <circle cx="256" cy="264" r="99" fill="#080620" opacity="0.55" filter="url(#blur)"/>
+    <circle cx="256" cy="256" r="94" fill="none" stroke="url(#rim)" stroke-width="10"/>
+    <circle cx="256" cy="256" r="88" fill="url(#glass)"/>
+    <circle cx="256" cy="256" r="59" fill="url(#iris)"/>
+    <circle cx="256" cy="256" r="57.5" fill="none" stroke="#E0E7FF" stroke-opacity="0.55" stroke-width="3"/>
+    <circle cx="256" cy="256" r="28" fill="url(#pupil)"/>
+    <ellipse cx="235" cy="224.5" rx="13" ry="10.5" fill="#FFFFFF" opacity="0.95" filter="url(#soft)"/>
+    <circle cx="286" cy="288" r="6" fill="#FFFFFF" opacity="0.55" filter="url(#soft)"/>
+    <rect x="1.25" y="1.25" width="509.5" height="509.5" rx="114.75" fill="none" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="2.5"/>
+  </g>
+</svg>
